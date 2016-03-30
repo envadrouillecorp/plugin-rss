@@ -1,5 +1,5 @@
 known_sentences.concat({
-   'sitemap':'Sitemap',
-   'sitemap_activated':'Permettre aux moteurs de recherche d\'indexer vos galeries',
+   'rss':'Rss',
+   'rss_activated':'Créer un flux RSS (/rss.xml)',
 });
 

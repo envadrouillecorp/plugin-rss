@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+      <title><![CDATA[EnVadrouille - {$URL}]]></title>
+      <description><![CDATA[EnVadrouille - {$URL}]]></description>
+      <link><![CDATA[{$URL}]]></link>
+      <ttl>60</ttl>
+      <atom:link href="{$URL}rss.xml" rel="self" type="application/rss+xml" />
+
+      {BALISE id=1}
+      <item>
+         <title><![CDATA[{$TITLE}]]></title>
+         <link><![CDATA[{$LOC}]]></link>
+         <guid><![CDATA[{$GUID}]]></guid>
+         <pubDate>{$LASTMOD}</pubDate>
+      </item>
+      {/BALISE}
+
+</channel>
+</rss>
