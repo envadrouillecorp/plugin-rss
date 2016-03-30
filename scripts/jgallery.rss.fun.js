@@ -1,4 +1,3 @@
-   // <link rel="alternate" type="application/rss+xml" title="Rss général" href="http://www.clubic.com/articles.rss"/>
    config.addRss = function() {
       var e = document.createElement('link');
       e.id = "rss";
