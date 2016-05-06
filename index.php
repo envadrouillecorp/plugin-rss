@@ -77,10 +77,10 @@ class Pages_Rss_Index {
 
       $content = $rss->getContent();
       $xml = simplexml_load_string($content);
-      if(isset($xml->url)) {
-         foreach($xml->url as $url) {
-            if(isset($url->loc)) {
-               $path_array = explode("#!", $url->loc);
+      if(isset($xml->channel)) {
+         foreach($xml->channel->item as $url) {
+            if(isset($url->link)) {
+               $path_array = explode("#!", ((string) $url->link));
                $completepath = end($path_array);
                $completepath = str_replace('%20', ' ', $completepath);
 
@@ -92,16 +92,16 @@ class Pages_Rss_Index {
                      continue;
                }
                if($xmldir->path !== $currentdir->completePath) {
-                  $new_dirs['LOC'][] = $url->loc;
-                  $new_dirs['TITLE'][] = $url->title;
-                  $new_dirs['GUID'][] = $url->guid;
-                  $new_dirs['LASTMOD'][] = $url->lastmod;
+                  $new_dirs['LOC'][] = ((string) $url->link);
+                  $new_dirs['TITLE'][] = ((string) $url->title);
+                  $new_dirs['GUID'][] = ((string) $url->guid);
+                  $new_dirs['LASTMOD'][] = ((string) $url->pubDate);
                   continue;
                }
                if($xmldir->isUpdated)
                   continue;
                $index = $new_paths[$xmldir->completePath];
-               $new_dirs['LASTMOD'][$index] = $url->lastmod;
+               $new_dirs['LASTMOD'][$index] = ((string) $url->pubDate);
             }
          }
       }
